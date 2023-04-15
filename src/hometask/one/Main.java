@@ -11,12 +11,20 @@ public class Main {
 		File endFolder = new File(".\\copy");
 		endFolder.mkdirs();
 
+		File fileToCompare1 = new File(".\\1.jpg");
+		File fileToCompare2 = new File(".\\copy\\3.jpg");
+
 		try {
 			System.out.println(FileService.copyFileToFolder(startFolder, endFolder, "jpg"));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-
+		if (FileComparator.compareFiles(fileToCompare1, fileToCompare2)) {
+			System.out.println("Файли ідентичні");
+		} else {
+			System.out.println("Файли не ідентичні");
+		}
+		;
 	}
 
 }
